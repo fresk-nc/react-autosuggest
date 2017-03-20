@@ -238,6 +238,7 @@ class Autosuggest extends Component {
     const { value, onBlur, onFocus, onKeyDown } = inputProps;
     const isOpen = alwaysRenderSuggestions || isFocused && !isCollapsed && this.willRenderSuggestions();
     const items = (isOpen ? suggestions : []);
+    const isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
     const autowhateverInputProps = {
       ...inputProps,
       onFocus: event => {
@@ -262,7 +263,7 @@ class Autosuggest extends Component {
           }
         }
       },
-      onChange: event => {
+      [isIE11 ? 'onInput' : 'onChange']: event => {
         const { value } = event.target;
         const { shouldRenderSuggestions } = this.props;
 
