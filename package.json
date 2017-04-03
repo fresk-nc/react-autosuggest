@@ -1,5 +1,5 @@
 {
-  "name": "react-autosuggest",
+  "name": "react-autosuggest-fresk",
   "version": "4.0.0",
   "description": "WAI-ARIA compliant React autosuggest component",
   "main": "dist/index.js",
